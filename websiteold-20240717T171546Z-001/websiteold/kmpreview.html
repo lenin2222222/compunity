@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompUnity Computer Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="assets/logo.png" alt="CompUnity Logo">
+        </a>
+        <ul class="navlist">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li class="dropdown">
+                <a href="products.html">Products</a>
+                <ul class="dropdown-menu">
+                    <li><a href="headsetpreview.html">Headset</a></li>
+                    <li><a href="monitorpreview.html">Monitor</a></li>
+                    <li><a href="kmpreview.html">Keyboard</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="right-content">
+            <a href="contact.html" class="nav-btn">Contact</a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+
+    <section class="hero4">
+        <div class="heads">
+            <h2>Keyboard Mouse Shop</h2>
+            <div class="shoppingBasket">
+                <i class="fa fa-cart-shopping fa-xl"></i>
+                <span class="quantity">0</span>
+            </div>
+        </div>
+        <div class="products"></div>
+        </div>
+        
+        <div class="cart">
+            <h3>Your Items</h3>
+            <ul class="productList"></ul>
+        
+            <div class="checkout">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSffa763eJ3bsX6_iPVh399nEKykIJyVuIKWbX3g0MqPl6nLCw/viewform?embedded=true" id="checkout-link" class="total-link">
+                    <div class="total">
+                        <small>Checkout (0 items): ₱0</small>
+                    </div>
+                </a>
+                <div class="close">Close</div>
+            </div>
+            
+        </div>
+    
+    </section>
+
+    <style>
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff;
+}
+
+.heads {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 80px;
+    cursor: pointer;
+    height: 80px;
+    margin-bottom: 32%;
+    color: white;
+    position: absolute;
+    margin-left: 49%;
+}
+.heads h2{
+    margin-left: -100px;
+    text-shadow: 2px 2px black;
+}
+
+.shoppingBasket {
+    position: absolute;
+    margin-left: 60%;
+}
+
+.shoppingBasket .quantity {
+    background-color: red;
+    color: #fff;
+    border-radius: 50%;
+    padding: 0 8px;
+    position: absolute;
+    top: -15px;
+    left: 20px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 25px;
+    row-gap: 25px;
+    margin: 10px 30px;
+    padding: 0 55px;
+    margin-top: 10%;
+    margin-left: -5%;
+}
+
+.products .item {
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0px 50px black;
+    letter-spacing: 1px;
+    width: 250px;
+    height: 320px;
+    margin-left: 70%;
+    margin-top: 20%;
+}
+
+.products .item img {
+    height: 150px;
+    filter: drop-shadow(10px 10px 5px #d3d3d3);
+    width: 170px;
+}
+
+.products .price {
+    align-items: center;
+    margin-left: 32%;
+    color: lightgray;
+}
+
+.products .item img:hover {
+    scale: 1.2;
+    transition: 0.5s;
+}
+
+.products .item .name {
+    font-weight: 600;
+    text-shadow: 2px 2px black;
+    font-size: 18px;
+}
+
+.products .item button {
+    background-color: black;
+    color: gold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.cart {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 400px;
+    background: linear-gradient(rgba(7, 64, 187, 0.993), rgba(0, 0, 0, 0.452));
+    height: 85vh;
+    transition: 0.5s;
+    margin-top: 8%;
+}
+
+.cart h3 {
+    font-weight: 100;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+    text-shadow: 2px 2px black;
+}
+
+.cart .checkout {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cart .checkout div {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: gold;
+}
+
+.cart .checkout div {
+    color: black;
+}
+
+.cart .checkout div:nth-child(2) {
+    background-color: lightgray;
+    color: black;
+}
+
+.active .cart {
+    left: calc(100% - 400px);
+}
+
+.fa-star {
+    color: #ff9c1a;
+}
+
+.productList {
+    padding: 15px;
+    height: auto;
+}
+
+.productList li {
+    display: grid;
+    grid-template-columns: 100px repeat(3, 1fr);
+    color: #fff;
+    row-gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid;
+}
+
+.productList li img {
+    width: 50px;
+    background: #fff;
+}
+
+.productList li div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.productList li button {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+}
+
+.productList li .count {
+    padding: 10px;
+}
+
+.total-link {
+    display: block;
+    text-decoration: none;
+}
+
+.total {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: gold;
+    color: black;
+}
+    </style>
+
+    <script>
+
+let ArrProducts=[
+    {
+        id:1,
+        name:"KOYO",
+        image:"koyo.jpg",
+        price:"890",
+        rating: 5,
+    },
+    {
+        id:2,
+        name:"ALLAN",
+        image:"allankm.png",
+        price:"448",
+        rating: 5,
+    },
+    {
+        id:3,
+        name:"KEYTECH",
+        image:"keytech.jpg",
+        price:"269",
+        rating: 5,
+    },
+    {
+        id:4,
+        name:"LIMEIDE",
+        image:"limeide.jpg",
+        price:"459",
+        rating: 5,
+    },
+    {
+        id:5,
+        name:"ZYPHER",
+        image:"zypher.png",
+        price:"960",
+        rating: 5,
+    },
+    {
+        id:6,
+        name:"INPLAY",
+        image:"inplay.jpg",
+        price:"940",
+        rating: 5,
+    },
+    {
+        id:7,
+        name:"NUBWO",
+        image:"nubwo.jpg",
+        price:"760",
+        rating: 5,
+    },
+    {
+        id:8,
+        name:"BESTEIN",
+        image:"bestein.jpg",
+        price:"200",
+        rating: 5,
+    },
+    
+];
+
+
+const body = document.querySelector('body'),
+            products = document.querySelector(".products"),
+            shoppingBasket = document.querySelector(".shoppingBasket"),
+            closeCart = document.querySelector(".close"),
+            productList = document.querySelector(".productList"),
+            quantity = document.querySelector(".quantity"),
+            total = document.querySelector(".total");
+
+        let checkOutList = [];
+
+        shoppingBasket.onclick = () => {
+            body.classList.add("active");
+        };
+        closeCart.onclick = () => {
+            body.classList.remove("active");
+        };
+
+        function onInIt() {
+            ArrProducts.forEach((item, key) => {
+                let div = document.createElement("div");
+                div.classList.add("item");
+
+                let star = "";
+                for (let i = 0; i < item.rating; i++) {
+                    star += `<i class="fa fa-star"></i>`;
+                }
+
+                div.innerHTML = `
+                    <img src="images/${item.image}" />
+                    <div class="name">${item.name}</div>
+                    <div>${star}</div>
+                    <div class="price"><small>₱</small>${item.price}</div>
+                    <button onclick="addToCart(${key})"><i class="fa fa-cart-plus"></i> Buy now</button>
+                `;
+
+                products.appendChild(div);
+            });
+        }
+        onInIt();
+
+        function addToCart(Id) {
+            if (checkOutList[Id] == null) {
+                checkOutList[Id] = { ...ArrProducts[Id], quantity: 1 };
+            } else {
+                checkOutList[Id].quantity += 1;
+            }
+            reloadCart();
+        }
+
+        function reloadCart() {
+    productList.innerHTML = "";
+    let count = 0;
+    let totalPrice = 0;
+
+    checkOutList.forEach((item, key) => {
+        if (item) {
+            const itemPrice = parseFloat(item.price); // Parse price as float
+            totalPrice += itemPrice * item.quantity;
+            count += item.quantity;
+
+            let li = document.createElement("li");
+            li.innerHTML = `
+                <img src="images/${item.image}">
+                <div>${item.name}</div>
+                <div>₱${itemPrice.toLocaleString()}</div>
+                <div>
+                    <button onclick="changeQuantity(${key}, ${item.quantity - 1})">-</button>
+                    <div class="count">${item.quantity}</div>
+                    <button onclick="changeQuantity(${key}, ${item.quantity + 1})">+</button>
+                </div>
+            `;
+
+            productList.appendChild(li);
+        }
+    });
+
+    quantity.innerHTML = count;
+    total.innerHTML = `<small>Checkout (${count} items): ₱</small>${totalPrice.toLocaleString()}`; // Add comma separator back for display
+}
+
+
+        function changeQuantity(id, quantity) {
+            if (quantity == 0) {
+                delete checkOutList[id];
+            } else {
+                checkOutList[id].quantity = quantity;
+            }
+            reloadCart();
+        }
+    </script>
+
+
+
+    <div class="icons">
+        <a href="#" data-aos="fade-in" data-aos-duration="1400" data-aos-delay="600"><i class="ri-facebook-circle-fill"></i></a>
+        <a href="#" data-aos="fade-in" data-aos-duration="1400" data-aos-delay="700"><i class="ri-mail-fill"></i></a>
+        <a href="#" data-aos="fade-in" data-aos-duration="1400" data-aos-delay="800"><i class="ri-instagram-fill"></i></a>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 1,
+        });
+    </script>
+</body>
+</html>
